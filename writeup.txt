@@ -1,0 +1,9 @@
+To start off this project, I looked for python modules that could make my life easier by being able to read video files and displaying it while I dealt with streaming over the network. I found openCV which fulfilled my first requirement. I also didn't want to deal with any UI so i thought of streaming through HTML so it can just be displayed over a broswer (which all modern browsers should be able to display a video). 
+
+However, rereading the requirements for the project, it seems like I can't stream to browser as it would probably auto-implement pause and play functionality. Looking for another UI program now! I might user Tkinter to program a UI. 
+
+Turns out cv2 has a display ui for videos WITHOUT play pause controls, so I went with that. Also I decided TCP over UDP because UDP would work better if it was a video livestream (something like twitch since lost packets don't really matter). TCP is more suited for what I'm intending on doing (reliability matters!)
+
+I finished the base client and server code and tried it on a movie I had and it didn't work (maybe because file too large??). Interestingly, I tried it on my webcam video and it transmitted correctly so I think its a problem with filesize. After downloading a smaller file, it seems to work!
+
+I used pickle to turn an image into a bytestream and transmit it over the socket. I also used struct to transmit size of each frame so that the client knows how much to take in. 
