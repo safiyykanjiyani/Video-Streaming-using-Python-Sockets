@@ -12,7 +12,7 @@ port = 9001
 socket.bind((address,port))
 socket.listen(1)
 #choose videofile to display!
-videofile = "fountain.mp4"
+videofile = "cursed.avi"
 
 while True:
     #keep looking for clients
@@ -36,7 +36,9 @@ while True:
             frame = pickle.loads(compressed)
             '''
             #send the packet to the client
-            client.sendall(packet)
+            try:
+                client.sendall(packet)
+            except:
+                break
             #cv2.waitKey(1)
             #cv2.imshow("Server", frame)
-    socket.close()

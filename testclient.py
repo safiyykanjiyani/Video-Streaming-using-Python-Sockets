@@ -52,6 +52,7 @@ while True:
     key = cv2.waitKey(1)
     #if the key is Q, then quit the program
     if key == ord('q'):
+        socket.close()
         break
     #if the key is a space, then pause the film
     while key in [ord(' ')]:
@@ -60,4 +61,5 @@ while True:
             break
     #quit when 'q' is pressed
     if key == ord('q'):
+        socket.close()
         break
