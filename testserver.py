@@ -1,6 +1,6 @@
 from socket import *
 import cv2
-import pickle 
+import pickle
 import struct
 
 
@@ -9,12 +9,12 @@ address = '192.168.56.1'
 port = 9001
 socket.bind((address,port))
 socket.listen(1)
-
+videofile = "bird.avi"
 
 while True:
     client, addr = socket.accept()
     if client:
-        video = cv2.VideoCapture("bird.avi")
+        video = cv2.VideoCapture(videofile)
         while video.isOpened():
             ret, frame = video.read()
             cv2.imshow("Server", frame)
